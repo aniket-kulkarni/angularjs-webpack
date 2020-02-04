@@ -24,5 +24,6 @@
     "clean-webpack-plugin": "^3.0.0"
   },
   "dependencies": {
+    "angular": "^1.7.9"
   }
 }
