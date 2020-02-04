@@ -2,18 +2,18 @@ export default function(ngModule) {
     ngModule
         .component('blogList', {
             template: require('./blog-list.html'),
-            controller,
+            controller: ['$translate', controller],
             controllerAs: 'vm'
         });
 }
 
-function controller() {
+function controller($translate) {
     const vm = this;
     console.log('Hello Controller');
 
     vm.title = 'Hello';
 
     vm.onButtonCliked = () => {
-        vm.title = 'Clicked';
+        vm.title = $translate.instant('TEST');
     };
 }
