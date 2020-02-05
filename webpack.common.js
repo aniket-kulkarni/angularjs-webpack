@@ -1,13 +1,15 @@
+const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  context: path.resolve(__dirname, 'src'),
   entry: {
-    main: "./src/index.js",
-    vendor: "./src/vendor.js"
+    main: "./index.js",
+    vendor: "./vendor.js"
   },
   plugins: [
     new CopyPlugin([
-      { from: './src/locale', to: 'locale', ignore: ['!*.json']},
+      { from: './locale', to: 'locale', ignore: ['!*.json']},
     ])
   ],
   module: {
