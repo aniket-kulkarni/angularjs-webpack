@@ -1,0 +1,38 @@
+@import './variables.scss';
+
+@mixin respond-to($media) {
+  @if $media == small {
+    @media only screen and (min-width: $small-breakpoint) {
+      @content;
+    }
+  }
+
+  @else if $media == medium {
+    @media only screen and (min-width: $medium-breakpoint) {
+      @content;
+    }
+  }
+
+  @else if $media == large {
+    @media only screen and (min-width: $large-breakpoint) {
+      @content;
+    }
+  }
+
+  @else if $media == xlarge {
+    @media only screen and (min-width: $xlarge-breakpoint) {
+      @content;
+    }
+  }
+
+  @else if $media == xxlarge {
+    @media only screen and (min-width: $xlarge-breakpoint) {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and (min-width: $media) {
+      @content;
+    }
+  }
+}

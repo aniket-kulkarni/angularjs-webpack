@@ -1,3 +1,5 @@
+import './blog-list.scss';
+
 export default function(ngModule) {
     ngModule
         .component('blogList', {

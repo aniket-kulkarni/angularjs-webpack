@@ -1,0 +1,52 @@
+@import './variables.scss';
+@import './responsive.scss';
+@import './typography.scss';
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+h1 {
+    @include set-text-as(xxlarge, bold);
+
+    margin: 0.5em 0;
+}
+
+h2 {
+    @include set-text-as(xlarge, medium);
+
+    margin: 0.5em 0;
+}
+
+h3 {
+    @include set-text-as(large, semibold);
+
+    margin: 0.5em 0;
+}
+
+h4 {
+    @include set-text-as(medium, medium);
+
+    margin: 0.5em 0;
+}
+
+h5 {
+    @include set-text-as(medium, medium);
+
+    margin: 0.5em 0;
+}
+
+p {
+    @include set-text-as(medium, medium);
+
+    margin: 0.5em 0;
+}
+
+ul,
+ol {
+    @include set-text-as(medium, medium);
+
+    margin: 0.5em 0;
+    list-style-type: none;
+}

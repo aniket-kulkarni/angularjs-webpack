@@ -1,0 +1,35 @@
+@mixin set-text-as($size, $weight: medium) {
+    @if $size == xsmall {
+        font-size: 0.7rem;
+        line-height: 1;
+    }
+    @if $size == small {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    @else if $size == medium {
+        font-size: 1.1rem;
+        line-height: 1.4;
+    } @else if $size == large {
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }  @else if $size == xlarge {
+        font-size: 2rem;
+        line-height: 1.5;
+    } @else if $size == xxlarge {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    // weight
+    @if $weight == light {
+        font-weight: 200;
+    }
+    @else if $weight == medium {
+        font-weight: 400;
+    } @else if $weight == semibold {
+        font-weight: 600;
+    } @else if $weight == bold {
+        font-weight: 700;
+    }
+}
