@@ -3,15 +3,9 @@ const karmaWebpack = require('karma-webpack');
 
 module.exports = function(config) {
   config.set({
-
-    // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['mocha'],
-
 
     // list of files / patterns to load in the browser
     files: ["src/index.tests.js"],
@@ -21,27 +15,19 @@ module.exports = function(config) {
       stats: "errors-only"
     },
 
-
-    // list of files / patterns to exclude
     exclude: [
     ],
 
-
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       "src/index.tests.js": ["webpack"],
       "src/**/*.test.js": ["webpack"]
     },
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['mocha'],
 
-
-    // web server port
     port: 9876,
 
 
@@ -52,20 +38,27 @@ module.exports = function(config) {
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
-
-
-    // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
 
 
-    // start these browsers
-    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    // referred from webui admin
+    // @see https://github.com/karma-runner/karma-chrome-launcher/issues/180
+    browsers: process.env.NODE_ENV === 'dev' ? ['Chrome']: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: [
+          '--no-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-web-security'
+        ]
+      },
+    },
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: process.env.NODE_ENV === 'dev' ? false: true,
 
     // Concurrency level
     // how many browser should be started simultaneous
@@ -76,7 +69,6 @@ module.exports = function(config) {
       'karma-chai',
       'karma-mocha',
       'karma-chrome-launcher',
-      'karma-phantomjs-launcher',
       'karma-mocha-reporter'
     ]
   })
