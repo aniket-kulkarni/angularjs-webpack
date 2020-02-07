@@ -12,8 +12,13 @@
   },
   "lint-staged": {
     "*.js": [
-      "npm run precommit"
+      "npm run lint:staged-only"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
