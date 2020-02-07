@@ -15,7 +15,7 @@ import { initializeRoutes } from './routes/router';
 const ngModule = angular.module('user-app', [
   'ui.router',
   'ngSanitize',
-  'pascalprecht.translate'
+  'pascalprecht.translate' 
 ]);
 
 initializeRoutes(ngModule);
