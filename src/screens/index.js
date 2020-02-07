@@ -1,5 +1,5 @@
-import BlogList from './blog-list/BlogListComponent';
+import { registerBlogComponent } from './blog-list/BlogListComponent';
 
 export function initializeScreens(ngModule) {
-    BlogList(ngModule);
+  registerBlogComponent(ngModule);
 }

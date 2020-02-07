@@ -1,5 +1,5 @@
-import hello from './hello/hello';
+import { registerHello } from './hello/hello';
 
-export function initializeDirectives(ngModule)  {
-    hello(ngModule);
-};
+export function initializeDirectives(ngModule) {
+  registerHello(ngModule);
+}
