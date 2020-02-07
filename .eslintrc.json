@@ -33,7 +33,17 @@
       }
     ]
   },
+  "overrides": [
+    {
+      "files": ["*.test.js","*.spec.js"],
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ],
   "globals": {
-    "angular": "readonly"
+    "angular": "readonly",
+    "describe": "readonly",
+    "it": "readonly"
   }
 }
