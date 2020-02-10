@@ -10,7 +10,6 @@ export function registerBlogComponent(ngModule) {
 
 function controller($translate) {
   const vm = this;
-  console.log('Hello Controller');
 
   vm.title = 'Hello';
 
