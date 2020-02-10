@@ -9,8 +9,8 @@
     "precommit": "lint-staged",
     "start": "webpack-dev-server  --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js",
-    "test": "cross-env NODE_ENV=dev jest",
-    "test:ci": "cross-env NODE_ENV=test jest"
+    "test": "cross-env NODE_ENV=dev jest --watch",
+    "test:ci": "cross-env NODE_ENV=test jest --ci --maxWorkers=50%"
   },
   "lint-staged": {
     "*.js": [
@@ -25,6 +25,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
+    "@types/jest": "^25.1.2",
     "angular-mocks": "^1.7.9",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
