@@ -7,7 +7,7 @@ export function initializeRoutes(ngModule) {
         .state({
           name: 'root',
           url: '/',
-          template: '<p>Login bhai Login </p>'
+          template: '<p>This is index auth route </p>'
         })
         .state({
           name: 'login',
