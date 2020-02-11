@@ -6,10 +6,9 @@ import 'angular-translate-loader-static-files';
 
 import './assets/styles/app.scss';
 
-import { initializeDirectives } from './directives';
-import { initializeScreens } from './screens';
+import { initializeScreens } from './screens/authScreens';
 import { configureTranslations } from './locale';
-import { initializeRoutes } from './routes/router';
+import { initializeRoutes } from './routes/authRouter';
 
 const ngModule = angular.module('user-app', [
   'ui.router',
@@ -19,5 +18,4 @@ const ngModule = angular.module('user-app', [
 
 initializeRoutes(ngModule);
 configureTranslations(ngModule);
-initializeDirectives(ngModule);
 initializeScreens(ngModule);

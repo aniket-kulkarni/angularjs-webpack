@@ -1,16 +1,15 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    main: "./index.js",
-    vendor: "./vendor.js"
+    main: './index.js',
+    auth: './auth.js'
   },
   plugins: [
-    new CopyPlugin([
-      { from: './locale', to: 'locale', ignore: ['!*.json']},
-    ])
+    new CopyPlugin([{ from: './locale', to: 'locale', ignore: ['!*.json'] }])
   ],
   module: {
     rules: [
@@ -21,15 +20,15 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: ["html-loader"]
+        use: ['html-loader']
       },
       {
         test: /\.(svg|png|jpg|gif)$/,
         use: {
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            name: "[name].[hash].[ext]",
-            outputPath: "imgs"
+            name: '[name].[hash].[ext]',
+            outputPath: 'imgs'
           }
         }
       }
