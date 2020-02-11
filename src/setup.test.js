@@ -1,3 +1,3 @@
 import 'angular';
-import 'angular-mocks';  //eslint-disable-line
+import 'angular-mocks';
 import './index';
