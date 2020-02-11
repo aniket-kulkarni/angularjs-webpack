@@ -4,8 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
     main: './src/index.js',
-    auth: './src/auth.js',
-    vendor: './src/vendor.js'
+    auth: './src/auth.js'
   },
   plugins: [
     new CopyPlugin([

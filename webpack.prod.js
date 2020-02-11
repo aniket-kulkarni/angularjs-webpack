@@ -15,13 +15,23 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'dist')
   },
   optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors'
+        }
+      }
+    },
     minimizer: [
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: './src/index.html',
-        chunks: ['main'],
+        chunks: ['vendors', 'main'],
         minify: {
           removeAttributeQuotes: true,
           collapseWhitespace: true,
@@ -31,7 +41,7 @@ module.exports = merge(common, {
       new HtmlWebpackPlugin({
         filename: 'auth.html',
         template: './src/auth.html',
-        chunks: ['auth'],
+        chunks: ['vendors', 'auth'],
         minify: {
           removeAttributeQuotes: true,
           collapseWhitespace: true,

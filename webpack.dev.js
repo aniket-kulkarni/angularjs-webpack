@@ -11,16 +11,28 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'dist')
   },
   devtool: 'eval-source-map',
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors'
+        }
+      }
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html',
-      chunks: ['main']
+      chunks: ['vendors', 'main']
     }),
     new HtmlWebpackPlugin({
       filename: 'auth.html',
       template: './src/auth.html',
-      chunks: ['auth']
+      chunks: ['vendors', 'auth']
     })
   ],
   module: {

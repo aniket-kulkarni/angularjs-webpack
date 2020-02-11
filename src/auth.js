@@ -6,7 +6,6 @@ import 'angular-translate-loader-static-files';
 
 import './assets/styles/app.scss';
 
-import { foo } from './vendor'; // eslint-disable-line
 import { initializeScreens } from './screens/authScreens';
 import { configureTranslations } from './locale';
 import { initializeRoutes } from './routes/authRouter';
