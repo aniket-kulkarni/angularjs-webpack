@@ -6,13 +6,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
   mode: 'production',
   output: {
     filename: '[name].[contentHash].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist/user')
   },
   optimization: {
     splitChunks: {
@@ -47,7 +48,8 @@ module.exports = merge(common, {
           collapseWhitespace: true,
           removeComments: true
         }
-      })
+      }),
+      new BaseHrefWebpackPlugin({ baseHref: '/user/' })
     ]
   },
   plugins: [

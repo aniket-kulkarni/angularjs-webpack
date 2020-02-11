@@ -7,8 +7,15 @@ const common = require('./webpack.common');
 module.exports = merge(common, {
   mode: 'development',
   output: {
+    publicPath: 'user',
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'user'),
+    port: 8445,
+    openPage: 'user',
+    open: true
   },
   devtool: 'eval-source-map',
   optimization: {
