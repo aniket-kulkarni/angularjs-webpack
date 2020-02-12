@@ -4,17 +4,18 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common');
 
-module.exports = merge(common, {
+const { contextPath } = common;
+
+module.exports = merge(common.webpackConfig, {
   mode: 'development',
   output: {
-    publicPath: 'user',
+    publicPath: contextPath,
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
-    contentBase: path.join(__dirname, 'user'),
     port: 8445,
-    openPage: 'user',
+    openPage: contextPath,
     open: true
   },
   devtool: 'eval-source-map',

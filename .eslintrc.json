@@ -42,7 +42,11 @@
     }
   ],
   "globals": {
+    // JS Globals
     "angular": "readonly",
+    // webpack define plugin
+    "LOCALE_BASE": "readonly",
+    // test cases
     "describe": "readonly",
     "beforeEach": "readonly",
     "expect": "readonly",
