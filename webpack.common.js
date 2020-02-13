@@ -38,12 +38,13 @@ const webpackConfig = {
       {
         test: /\.(svg|png|jpg|gif)$/,
         use: {
-          loader: 'file-loader',
+          loader: 'url-loader',
           options: {
             name: '[name].[hash].[ext]',
             outputPath: 'images/',
             publicPath: `${contextPath}/images`,
-            esModule: false
+            esModule: false,
+            limit: 8192 // in bytes
           }
         }
       }

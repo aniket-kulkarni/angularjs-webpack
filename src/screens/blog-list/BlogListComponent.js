@@ -1,5 +1,5 @@
 import './blog-list.scss';
-import icon from '../../assets/images/road.jpg';
+import icon from '../../assets/images/whatsapp.png';
 
 export function registerBlogComponent(ngModule) {
   ngModule.component('blogList', {
