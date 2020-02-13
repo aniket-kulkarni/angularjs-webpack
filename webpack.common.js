@@ -41,7 +41,9 @@ const webpackConfig = {
           loader: 'file-loader',
           options: {
             name: '[name].[hash].[ext]',
-            outputPath: 'imgs'
+            outputPath: 'images/',
+            publicPath: `${contextPath}/images`,
+            esModule: false
           }
         }
       }

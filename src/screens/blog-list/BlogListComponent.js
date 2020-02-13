@@ -1,4 +1,5 @@
 import './blog-list.scss';
+import icon from '../../assets/images/road.jpg';
 
 export function registerBlogComponent(ngModule) {
   ngModule.component('blogList', {
@@ -12,6 +13,7 @@ function controller($translate) {
   const vm = this;
 
   vm.title = 'Hello';
+  vm.icon = icon;
 
   vm.onButtonCliked = () => {
     vm.title = $translate.instant('TEST');
